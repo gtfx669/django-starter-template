@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "django-starter-template"
+version = "0.1.0"
+description = ""
+authors = ["Leon Rashkovsky <leon.rashkovsky@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^5.0.3"
+psycopg2-binary = "^2.9.3"
+gunicorn = "^22.0.0"
+django-htmx = "^1.17.2"
+django-environ = "^0.11.2"
+whitenoise = "^6.6.0"
+redis = "^5.0.1"
+django-components = "^0.67"
+
+
+[tool.poetry.group.dev.dependencies]
+django-debug-toolbar = "^4.0.0"
+django-extensions = "^3.1.5"
+notebook = "^7.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
