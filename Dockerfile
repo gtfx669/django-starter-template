@@ -42,7 +42,7 @@ RUN poetry check
 RUN poetry install --no-interaction --no-cache --without dev
 COPY . .
 
-RUN poetry run gunicorn -c gunicorn.conf.py
+RUN poetry run gunicorn -c gunicorn.{{ cookiecutter.project_slug }}.py
 
 FROM base-app as app-dev
 COPY poetry.lock pyproject.toml ./
