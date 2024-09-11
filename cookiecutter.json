@@ -5,6 +5,7 @@
     "author_name": "Your name",
     "email": "Your Email",
     "domain_name": "example.com",
+    "username_type": ["username", "email"],
     "version": "0.1.0",
     "timezone": "UTC",
     "editor": ["None", "VS Code"],

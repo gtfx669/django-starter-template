@@ -37,6 +37,25 @@ DJANGO_DATABASE_URL = env.db("DATABASE_URL")
 DATABASES = {"default": DJANGO_DATABASE_URL}
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+
+THIRD_PARTY_APPS = [
+    {% if cookiecutter.use_django_rq == 'y' %}
+    'django_rq',
+    {% endif %}
+    'django_filters',
+    "django_components",
+    "django_htmx",
+    {%- if cookiecutter.use_whitenoise == 'y' %}
+    "whitenoise.runserver_nostatic"
+    {% endif %}
+]
+
+LOCAL_APPS = [
+    'apps.users',
+]
+
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,11 +64,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
-    "django_components",
-    "django_htmx",
-    'django_q',
-    "apps.users",
-]
+] + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
