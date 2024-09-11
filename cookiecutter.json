@@ -4,11 +4,14 @@
     "description": "Behold My Awesome Django Project!",
     "author_name": "Your name",
     "email": "Your Email",
+    "domain_name": "example.com",
     "version": "0.1.0",
     "timezone": "UTC",
     "editor": ["None", "VS Code"],
     "postgresql_version": ["16", "15"],
     "use_redis": "y",
     "use_django_rq": "y",
-    "use_async": "y"
+    "use_async": "y",
+    "use_whitenoise": "n",
+    "debug": "n"
 }
