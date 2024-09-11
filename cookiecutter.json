@@ -3,6 +3,12 @@
     "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
     "description": "Behold My Awesome Django Project!",
     "author_name": "Your name",
-    "use_drf": "n",
-    "use_simple_jwt": "n"
+    "email": "{{ cookiecutter.author_name.lower() | trim() |replace(' ', '-') }}@{{ cookiecutter.domain_name.lower() | trim() }}",
+    "version": "0.1.0",
+    "timezone": "UTC",
+    "editor": ["None", "VS Code"],
+    "postgresql_version": ["16", "15"],
+    "use_redis": "y",
+    "use_django_rq": "y",
+    "use_async": "y"
 }

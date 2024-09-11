@@ -19,4 +19,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    {% if cookiecutter.use_django_rq == 'y' %}
+    path('admin/rq/', include('django_rq.urls')),
+    {% endif %}  
 ]
