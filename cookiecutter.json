@@ -13,6 +13,6 @@
     "use_redis": "y",
     "use_django_rq": "y",
     "use_async": "y",
-    "use_whitenoise": "n",
-    "debug": "n"
+    "use_whitenoise": "y",
+    "debug": "y"
 }

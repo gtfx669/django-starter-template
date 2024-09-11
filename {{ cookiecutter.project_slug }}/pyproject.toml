@@ -21,7 +21,7 @@ redis=="^5.0.8"
 {% endif %}
 
 
-{% if cookiecutter.use_rq == 'y' %}
+{% if cookiecutter.use_django_rq == 'y' %}
 django-rq=="^2.10.2"
 rq=="^1.16.2"
 {% endif %}
