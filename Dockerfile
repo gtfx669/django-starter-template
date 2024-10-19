@@ -67,7 +67,6 @@ RUN poetry install
 WORKDIR /app
 COPY ./ /app/
 
-EXPOSE 8000
 CMD ["uvicorn", "--host",  "0.0.0.0", "--reload", "my_project.asgi:application"]
 
 

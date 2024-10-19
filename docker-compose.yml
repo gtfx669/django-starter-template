@@ -47,6 +47,25 @@ services:
       - redis-conf:/usr/local/etc/redis/redis.conf
     depends_on:
       - postgres
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+      args:
+        ENVIRONMENT: dev
+        DJANGO_ENV: dev
+    container_name: worker01
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - DB_HOST=${POSTGRES_USER}
+      - DB_PASSWORD=${POSTGRES_PW}
+      - PYTHONDONTWRITEBYTECODE=1
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CELERY_RESULT_BACKEND=${CELERY_RESULT_BACKEND}
+    command: celery -A my_project worker -l info
 
 volumes:
   pgdata:
