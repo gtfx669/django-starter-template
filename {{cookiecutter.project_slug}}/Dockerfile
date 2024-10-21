@@ -67,7 +67,7 @@ RUN poetry install
 WORKDIR /app
 COPY ./ /app/
 
-CMD ["uvicorn", "--host",  "0.0.0.0", "--reload", "{{ project_name }}.asgi:application"]
+CMD ["uvicorn", "--host",  "0.0.0.0", "--reload", "{{cookiecutter.project_slug}}.asgi:application"]
 
 
 # `production` image used for runtime
@@ -76,4 +76,4 @@ ENV DJANGO_ENV=production
 COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 COPY ./ /app/
 WORKDIR /app
-CMD ["gunicorn", "-k", "uvicorn_worker.UvicornWorker", "{{ project_name }}.asgi:application"]
+CMD ["gunicorn", "-k", "uvicorn_worker.UvicornWorker", "{{cookiecutter.project_slug}}.asgi:application"]
