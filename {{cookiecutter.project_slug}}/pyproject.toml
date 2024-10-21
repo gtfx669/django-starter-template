@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "django-project"
+name = "{{ cookiecutter.project_slug }}"
 version = "0.1.0"
 description = ""
-authors = ["Leon Rashkovsky <leon.rashkovsky@gmail.com>"]
+authors = ["{{ cookiecutter.author_name }} <cookiecutter.author_email>"]
 readme = "README.md"
 package-mode = false
 
