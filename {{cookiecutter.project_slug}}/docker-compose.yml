@@ -10,28 +10,22 @@ services:
     depends_on:
       - postgres
     environment:
-      - DB_HOST=${POSTGRES_USER}
-      - DB_PASSWORD=${POSTGRES_PW}
       - PYTHONDONTWRITEBYTECODE=1
     ports:
       - "8000:8000"
+    env_file: ./dev.env 
   postgres:
     image: "postgres:16-alpine"
     restart: unless-stopped
     volumes:
       - pgdata:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PW}
-      - POSTGRES_DB=${POSTGRES_DB}
+    env_file: ./dev.env 
     ports:
       - "5432:5432"
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4:latest
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_MAIL}
-      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PW}
+    env_file: ./dev.env 
     ports:
       - "5050:80"
     restart: always
@@ -60,11 +54,8 @@ services:
       - postgres
       - redis
     environment:
-      - DB_HOST=${POSTGRES_USER}
-      - DB_PASSWORD=${POSTGRES_PW}
       - PYTHONDONTWRITEBYTECODE=1
-      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
-      - CELERY_RESULT_BACKEND=${CELERY_RESULT_BACKEND}
+    env_file: ./dev.env 
     command: celery -A {{cookiecutter.project_slug}} worker -l info
 
 volumes:
